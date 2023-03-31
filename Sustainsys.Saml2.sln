@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29613.14
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sustainsys.Saml2", "Sustainsys.Saml2\Sustainsys.Saml2.csproj", "{93BA675E-A159-4701-B68B-C4B81015C556}"
 EndProject
@@ -29,8 +29,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sustainsys.Saml2.Mvc", "Sustainsys.Saml2.Mvc\Sustainsys.Saml2.Mvc.csproj", "{7D32F0A3-CEC8-4DC6-A096-5905EA9C3770}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sustainsys.Saml2.StubIdp", "Sustainsys.Saml2.StubIdp\Sustainsys.Saml2.StubIdp.csproj", "{7B60747D-6337-4424-ACB5-7D580EC1E1A1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sustainsys.Saml2.Owin", "Sustainsys.Saml2.Owin\Sustainsys.Saml2.Owin.csproj", "{FA1E7723-124C-4D2D-A731-E16400B0073B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sustainsys.Saml2.HttpModule", "Sustainsys.Saml2.HttpModule\Sustainsys.Saml2.HttpModule.csproj", "{86A588E8-2E2D-4394-9545-24D8EA939CF2}"
 EndProject
@@ -97,14 +95,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config-elements", "config-e
 		docs\config-elements\sustainsys-saml2.rst = docs\config-elements\sustainsys-saml2.rst
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleAesGcmNetCore31", "Samples\SampleAesGcmStartupNetCore31\SampleAesGcmNetCore31.csproj", "{309367E0-32C7-4916-9287-7C8CF7D626DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleAesGcmNetCore31", "Samples\SampleAesGcmStartupNetCore31\SampleAesGcmNetCore31.csproj", "{309367E0-32C7-4916-9287-7C8CF7D626DF}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Tests\Tests.Shared\Tests.Shared.projitems*{82f84e61-1292-47cf-b0dc-59f26ec56c32}*SharedItemsImports = 13
-		Tests\Tests.Shared\Tests.Shared.projitems*{c5c43d57-3a9c-4edf-97af-ee55a950284c}*SharedItemsImports = 4
-		Tests\Tests.Shared\Tests.Shared.projitems*{ff774b2e-51d4-4c64-ba0e-c061683a9b93}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -122,10 +115,6 @@ Global
 		{7B60747D-6337-4424-ACB5-7D580EC1E1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B60747D-6337-4424-ACB5-7D580EC1E1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B60747D-6337-4424-ACB5-7D580EC1E1A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FA1E7723-124C-4D2D-A731-E16400B0073B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FA1E7723-124C-4D2D-A731-E16400B0073B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FA1E7723-124C-4D2D-A731-E16400B0073B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FA1E7723-124C-4D2D-A731-E16400B0073B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{86A588E8-2E2D-4394-9545-24D8EA939CF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86A588E8-2E2D-4394-9545-24D8EA939CF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86A588E8-2E2D-4394-9545-24D8EA939CF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -214,5 +203,10 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A8812E38-A212-46DD-B51F-AB653F39E4ED}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Tests\Tests.Shared\Tests.Shared.projitems*{82f84e61-1292-47cf-b0dc-59f26ec56c32}*SharedItemsImports = 13
+		Tests\Tests.Shared\Tests.Shared.projitems*{c5c43d57-3a9c-4edf-97af-ee55a950284c}*SharedItemsImports = 4
+		Tests\Tests.Shared\Tests.Shared.projitems*{ff774b2e-51d4-4c64-ba0e-c061683a9b93}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

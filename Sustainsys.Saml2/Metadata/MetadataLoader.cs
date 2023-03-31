@@ -78,6 +78,69 @@ namespace Sustainsys.Saml2.Metadata
             return (EntityDescriptor)result;
         }
 
+        public static EntityDescriptor LoadIdp(Stream metadataStream, bool unpackEntitiesDescriptor)
+        {
+            if (metadataStream is null)
+            {
+                throw new ArgumentNullException(nameof(metadataStream));
+            }
+
+            var result = Load(metadataStream, null, false, null);
+
+            var entitiesDescriptor = result as EntitiesDescriptor;
+            if (entitiesDescriptor != null)
+            {
+                if (unpackEntitiesDescriptor)
+                {
+                    if (entitiesDescriptor.ChildEntities.Count > 1)
+                    {
+                        throw new InvalidOperationException(LoadIdpUnpackingFoundMultipleEntityDescriptors);
+                    }
+
+                    return (EntityDescriptor)entitiesDescriptor.ChildEntities.Single();
+                }
+
+                throw new InvalidOperationException(LoadIdpFoundEntitiesDescriptor);
+            }
+
+            return (EntityDescriptor)result;
+        }
+
+        private static MetadataBase Load(
+            Stream metadataStream,
+            IEnumerable<SecurityKeyIdentifierClause> signingKeys,
+            bool validateCertificate,
+            string minIncomingSigningAlgorithm)
+        {
+            using (var ms = new MemoryStream())
+            {
+                byte[] buf = new byte[65536];
+                for (; ; )
+                {
+                    int read = metadataStream.Read(buf, 0, buf.Length);
+                    if (read == 0)
+                        break;
+                    ms.Write(buf, 0, read);
+                }
+                // System.Diagnostics.Debug.WriteLine(Encoding.UTF8.GetString(ms.ToArray()));
+                ms.Position = 0;
+                var reader = XmlDictionaryReader.CreateTextReader(
+                    ms,
+                    XmlDictionaryReaderQuotas.Max);
+
+                if (signingKeys != null)
+                {
+                    reader = ValidateSignature(
+                        reader,
+                        signingKeys,
+                        validateCertificate,
+                        minIncomingSigningAlgorithm);
+                }
+
+                return Load(reader);
+            }
+        }
+
         private static MetadataBase Load(
             string metadataLocation,
             IEnumerable<SecurityKeyIdentifierClause> signingKeys,
